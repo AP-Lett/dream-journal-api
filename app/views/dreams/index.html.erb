@@ -1,2 +1,13 @@
-<h1>Dreams#index</h1>
-<p>Find me in app/views/dreams/index.html.erb</p>
+<h1>Dream Journal</h1>
+
+<% if @dreams.any? %>
+  <% @dreams.each do |dream| %>
+    <div class="dream">
+    <h2><%= link_to dream[:title], dream_path(dream[:id]) %></h2>
+    </div>
+  <% end %>
+<% else %>
+    <p>No dreams in journal.</p>
+<% end %>
+
+
